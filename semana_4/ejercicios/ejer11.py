@@ -2,11 +2,11 @@
 parámetro y devuelva el número de vocales que contiene. """
 
 def contar_vocales(texto):
-    vocales = "aeiou"
+    vocales = "aeiouAEIOU"
     cantidad_vocales = 0
     for letra in texto:
         if letra in vocales:
             cantidad_vocales += 1
     return cantidad_vocales
 
-print(contar_vocales("qwrty"))
+print(contar_vocales("¡hOla mUndO!"))
