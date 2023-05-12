@@ -30,3 +30,16 @@ while intentos <= 8: # mientras los intentos sean menor o igual que 8
                 intentos += 1
     else: # y si el numero no es un digito valido
         print("¡Asegurate de ingresar un numero!")
+
+
+## integrantes
+# Renzo, Arrieta
+# Pablo, Acevedo
+# Matías Gastón, Serial Trachta
+# Lugo Mauro, Rodrigo
+# Julio R, Escanciano Gonzalez
+# Facundo, Vicedo
+# Gabriel, Leiva
+# Joel, Chavez
+# Maximiliano Imanol, Aguer
+# Cristian J, Salto
