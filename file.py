@@ -1,0 +1,1 @@
+print(type(20.50) == float)
