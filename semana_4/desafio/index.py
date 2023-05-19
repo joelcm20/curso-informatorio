@@ -28,3 +28,15 @@ def index():
 
 
 index()
+
+# integrantes
+# Renzo, Arrieta
+# Pablo, Acevedo
+# Matías Gastón, Serial Trachta
+# Lugo Mauro, Rodrigo
+# Julio R, Escanciano Gonzalez
+# Facundo, Vicedo
+# Gabriel, Leiva
+# Joel, Chavez
+# Maximiliano Imanol, Aguer
+# Cristian J, Salto
