@@ -1,5 +1,6 @@
 from casos import casos
 
+# vuelve a ejecutar el programa si el usuario quiere
 def index():
     while True:
         print("""
@@ -14,7 +15,7 @@ def index():
 
         opcionesDisponibles = ["1", "2", "3", "4"]
         
-        while True:
+        while True: # vuelve a pedir la opcion si el dato es incorrecto
             opcion = input("Ingrese el numero que corresponda a la accion que desee hacer: ").strip()
             if not opcion in opcionesDisponibles:
                 print("ERROR: La opcion no es valida.")

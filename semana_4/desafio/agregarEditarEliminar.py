@@ -1,5 +1,6 @@
 from casosAgregarEditarEliminar import casosAgregarEditarEliminar
 
+# Agrega, edita o elimina segun la opcion pasada por el usuario
 def AgregarEditarEliminar():
     print("""
     Elige la operacion:

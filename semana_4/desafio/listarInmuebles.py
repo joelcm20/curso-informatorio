@@ -1,6 +1,7 @@
 from inmuebles import listaInmuebles as LM
 from preguntaFinal import PreguntaFinal
 
+# listar todos los inmuebles
 def ListarInmuebles():
     print("- [Lista de inmuebles]")
     for i in range(0, len(LM)):

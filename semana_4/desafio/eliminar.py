@@ -1,6 +1,7 @@
 from inmuebles import listaInmuebles as LM
 from preguntaFinal import PreguntaFinal
 
+# Eliminar inmueble de la lista segun el indice ingresado
 def Eliminar():
     print("Elige de la lista de inmuebles cual desea eliminar.\n")
     

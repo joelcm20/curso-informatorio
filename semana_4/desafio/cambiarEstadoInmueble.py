@@ -2,6 +2,7 @@ from inmuebles import listaInmuebles as LM
 from validarInmueble import ValidarEstado
 from preguntaFinal import PreguntaFinal
 
+# modifica el estado del inmueble elegido de la lista mostrada
 def CambiarEstadoInmueble():
     print("Elige de la lista de inmuebles cual desea cambiar el estado.\n")
     

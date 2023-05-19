@@ -2,6 +2,7 @@ from inmuebles import listaInmuebles
 from validarInmueble import *
 from preguntaFinal import PreguntaFinal
 
+#Agrega un nuevo inmueble y verifica uno por uno que los datos sean validos
 def Agregar():
     print("Ingresar datos del inmueble.")
 

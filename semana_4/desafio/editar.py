@@ -5,6 +5,7 @@ from preguntaFinal import PreguntaFinal
 def Editar():
     print("Elige de la lista de inmuebles cual desea editar.\n")
     
+    # listando inmuebles
     print("- [Lista de inmuebles]")
     for i in range(0, len(LM)):
         numero = i+1
@@ -18,6 +19,7 @@ def Editar():
     
     cantidadInmuebles = len(LM)
     
+    # solicitando indice del inmueble a modificar
     while True:
         indice = input("\nIngresa el numero dentro de corchetes: ").strip()
         if not indice.isdigit() or not int(indice) >= 1 and int(indice) < cantidadInmuebles:
@@ -25,20 +27,20 @@ def Editar():
         else: break
     
     indice = int(indice)-1
-    print("Ingresa los nuebos datos.\n")
-    for key in LM[indice].keys():
+    print("Ingresa los nuevos datos.\n")
+    for key in LM[indice].keys(): # editando
         if key == "garaje":
-            print(f"Posee garage? (valor actual: {LM[indice][key]})\n1: SI.\n2: NO.\n3: Valor Actual.")
-            opcionesGarage = {"1": True, "2": False, "3": LM[indice][key]}
+            print(f"Posee garaje? (valor actual: {LM[indice][key]})\n1: SI.\n2: NO.\n3: Valor Actual.")
+            opcionesGaraje = {"1": True, "2": False, "3": LM[indice][key]}
             while True:
-                opcionGarage = input("Ingrese el numero con la opcion: ").strip()
-                if not opcionGarage in opcionesGarage.keys():
+                opcionGaraje = input("Ingrese el numero con la opcion: ").strip()
+                if not opcionGaraje in opcionesGaraje.keys():
                     print("ERROR: La opcion no es valida.")
                 else:
-                    garage = opcionesGarage[opcionGarage]
+                    garaje = opcionesGaraje[opcionGaraje]
                     print("\n")
                     break
-            LM[indice][key] = garage
+            LM[indice][key] = garaje
         elif key == "zona":
             print(f"Elegir zona (valor actual {LM[indice][key]})\n1: A.\n2: B.\n3: C.\n4: Valor Actual.")
             while True:
