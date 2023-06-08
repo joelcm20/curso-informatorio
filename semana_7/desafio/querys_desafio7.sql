@@ -1,5 +1,5 @@
 --
--- Agregar el comando necesario que introduzca en la tabla usu es_colaborador=false, rio, 1 usuario con  nombreE)-- de admin, 4 con rol de colaborador y 5 con rol de público.
+-- Agregar el comando necesario que introduzca en la tabla usuario, 1 usuario con rol de admin, 4 con rol de colaborador y 5 con rol de público
 --
 INSERT INTO usuario
 (
@@ -42,10 +42,10 @@ contenido,
 estado
 )
 VALUES
-(3, "articulo 1", "resumen 1", "contenido 1", true),
-(4, "articulo 2", "resumen 2", "contenido 2", true),
-(5, "articulo 3", "resumen 3", "contenido 3", true),
-(1, "articulo 4", "resumen 4", "contenido 4", false);
+(12, "articulo 1", "resumen 1", "contenido 1", true),
+(13, "articulo 2", "resumen 2", "contenido 2", true),
+(14, "articulo 3", "resumen 3", "contenido 3", true),
+(15, "articulo 4", "resumen 4", "contenido 4", false);
 
 --
 -- Agregar el comando necesario para eliminar el artículo que tenga estado FALSE.
@@ -62,9 +62,11 @@ id_usuario,
 contenido
 )
 VALUES
-(1, 1, "comentario 1"),
-(2, 2, "comentario 2"),
-(2, 3, "comentario 2");
+(13, 12, "comentario 1"),
+(13, 13, "comentario 2"),
+(13, 14, "comentario 2"),
+(14, 15, "comentario 2"),
+(14, 15, "comentario 2");
 
 -- 
 -- Agregar el comando necesario para listar todos los artículos que tengan comentarios, mostrando el título del artículo, la fecha_publicacion del artículo, el nombre del usuario que realizo el comentario y la fecha_hora que realizó dicho comentario, agrupados por artículos.
