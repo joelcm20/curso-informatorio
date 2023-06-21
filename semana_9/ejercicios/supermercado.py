@@ -1,4 +1,4 @@
-class Producto:
+class Product:
     def __init__(self, name, price, staple_product, careful_price=False, discount=0.9):
         self.name = name
         self.price = price
@@ -28,18 +28,18 @@ class Supermarket:
         return total_price
     
     def add_product(self, product):
-        if not isinstance(product, Producto):
-            raise TypeError("El producto no es un objeto de tipo Producto")
+        if not isinstance(product, Product):
+            raise TypeError("El producto no es un objeto de tipo Product")
         self.products.append(product)
 
 
 # super market
 market = Supermarket("marcado-luis", "Av. Colinas 123")
 # products
-market.add_product(Producto("Pan", 150, True))
-market.add_product(Producto("Leche", 200, True))
-market.add_product(Producto("Gaseosa", 420, False))
-market.add_product(Producto("Alfajor", 80, False))
+market.add_product(Product("Pan", 150, True))
+market.add_product(Product("Leche", 200, True))
+market.add_product(Product("Gaseosa", 420, False))
+market.add_product(Product("Alfajor", 80, False))
 
 def print_options():
     print("1. Mostrar el número de productos")
@@ -66,9 +66,9 @@ while True:
         staple_product = input("¿Es un producto basico? (si/no): ")
         careful_price = input("¿Es un producto con precio cuidado? (si/no): ")
         if staple_product == "si":
-            product = Producto(name, price, True)
+            product = Product(name, price, True)
         else:
-            product = Producto(name, price, False)
+            product = Product(name, price, False)
         if careful_price == "si":
             product.careful_price = True
         
