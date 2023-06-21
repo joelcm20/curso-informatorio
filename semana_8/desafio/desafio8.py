@@ -108,6 +108,12 @@ class Comentario:
         self.contenido = contenido
         self.fecha_hora = fecha_hora
         self.estado = estado
+    def print_info(self):
+        print("id: ", self.id)
+        print("id_articulo: ", self.id_articulo)
+        print("id_usuario: ", self.id_usuario)
+        print("contenido: ", self.contenido)
+        print("fecha_hora: ", self.fecha_hora)
 
 # PROBANDO
 """
@@ -118,35 +124,6 @@ lucas = Publico(2, "Lucas", "Martinez", "1234567890", "lucasmartinez", "lucasmar
 lautaro = Publico(3, "Lautaro", "Martinez", "1234567890", "lautarmartinez", "lautarmartinez", "lautarmartinez", datetime.now(), "lautarmartinez.jpg")
 
 """
-articulos: creando articulos
-"""
-articulo1 = Articulo(1, 1, "Titulo1", "Resumen1", "Contenido1", datetime.now(), "imagen1.jpg", True)
-articulo2 = Articulo(2, 1, "Titulo2", "Resumen2", "Contenido2", datetime.now(), "imagen2.jpg", True)
-articulo3 = Articulo(3, 2, "Titulo3", "Resumen3", "Contenido3", datetime.now(), "imagen3.jpg", True)
-articulo4 = Articulo(4, 3, "Titulo4", "Resumen4", "Contenido4", datetime.now(), "imagen4.jpg", True)
-
-"""
-comentar: esta funcion crea algunos comentarios y muestra errores en caso de tener alguno
-"""
-def comentar():
-    exception, comentario1 = lucas.comentar(1, 1, "Comentario1", [articulo1, articulo2, articulo3])
-    if exception:
-        print(exception)
-    else:
-        print(comentario1)
-    exception, comentario2 = lautaro.comentar(2, 2, "Comentario2", [articulo4])
-    if exception:
-        print(exception)
-    else:
-        print(comentario2)
-
-
-"""
-Llamo la funcion comentar sin haber registrado los usuarios, deberia tener errores
-"""
-comentar()
-
-"""
 registrando los usuarios creados
 """
 joel.registrar()
@@ -154,20 +131,42 @@ lucas.registrar()
 lautaro.registrar()
 
 """
-Llamo la funcion comentar con los usuarios registrados, todavia deberia tener errores
-ya que los usuarios estan registrados pero no estan logueados
-"""
-comentar()
-
-"""
-logueando los usuarios
+logueando los usuarios para podes comentar y publicar
 """
 joel.login()
 lucas.login()
 lautaro.login()
 
 """
-Llamo la funcion comentar con los usuarios registrados y logueados, ahora
-deberia funcionar
+articulos: creando articulos
+"""
+exception, articulo1 = joel.publicar(1, "Titulo1", "Resumen1", "Contenido1")
+if exception:
+    print(exception)
+exception, articulo2 = joel.publicar(2, "Titulo2", "Resumen2", "Contenido2")
+if exception:
+    print(exception)
+exception, articulo3 = joel.publicar(3, "Titulo3", "Resumen3", "Contenido3")
+if exception:
+    print(exception)
+lista_articulos = [articulo1, articulo2, articulo3]
+
+"""
+comentar: esta funcion crea algunos comentarios y muestra errores en caso de tener alguno
+"""
+def comentar():
+    exception, comentario1 = lucas.comentar(1, 1, "Comentario1", lista_articulos)
+    if exception:
+        print(exception)
+    else:
+        comentario1.print_info()
+    exception, comentario2 = lautaro.comentar(2, 2, "Comentario2", lista_articulos)
+    if exception:
+        print(exception)
+    else:
+        comentario2.print_info()
+
+"""
+Llamo la funcion comentar con los usuarios registrados y logueados
 """
 comentar()
