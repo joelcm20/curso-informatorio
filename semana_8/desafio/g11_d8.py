@@ -170,3 +170,15 @@ def comentar():
 Llamo la funcion comentar con los usuarios registrados y logueados
 """
 comentar()
+
+# integrantes
+# Pablo, Acevedo
+# Matías Gastón, Serial Trachta
+# Lugo Mauro, Rodrigo
+# Julio R, Escanciano Gonzalez
+# Facundo, Vicedo
+# Gabriel, Leiva
+# Joel, Chavez
+# Maximiliano Imanol, Aguer
+# Cristian J, Salto
+# Fabricio, Herrera
