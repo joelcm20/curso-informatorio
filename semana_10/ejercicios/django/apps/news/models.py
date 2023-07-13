@@ -1,7 +1,6 @@
 from django.db import models
 from PIL import Image as Im
-
-# Create your models here.
+from uuid import uuid4
 
 
 class Category(models.Model):
@@ -21,15 +20,20 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
-    
-    def save(self):
-        super().save()
+
+    def save(self, *args, **kwargs):
+        if not self.pk:  # Solo si el objeto es nuevo
+            # generar un nombre único utilizando UUID
+            filename = f"{uuid4().hex}.{self.image.name.split('.')[-1]}"
+            self.image.name = filename
+
+        super().save(*args, **kwargs)
+
         img = Im.open(self.image.path)
-        # resize it
-        if img.height > 300 or img.width > 300:
-            output_size = (300,300)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+        # resize
+        output_size = (300, 300)
+        img.thumbnail(output_size)
+        img.save(self.image.path)
 
     class Meta:
         verbose_name_plural = "News"
