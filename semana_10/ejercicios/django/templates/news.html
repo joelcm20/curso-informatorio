@@ -4,7 +4,7 @@
   <div class="row">
     {% if news %} {% for new in news %}
     <div class="col-md-4 card" style="width: 18rem">
-      <img src="{{new.image.url}}" class="card-img-top img-fluid" alt="{{news.title}}" />
+      <img src="{{new.image.url}}" class="card-img-top img-fluid" alt="{{news.title}}" style="object-fit: cover; width: 250; height: 250px;" />
       <div class="card-body">
         <h5 class="card-title">{{new.title}}</h5>
         <p class="card-text">
