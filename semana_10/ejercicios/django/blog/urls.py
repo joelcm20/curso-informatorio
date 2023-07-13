@@ -23,5 +23,6 @@ from . import views
 urlpatterns = [
     path("admin/", admin.site.urls, name="admin"),
     path("", views.Home, name="home"),
+    path("signup/", views.signup, name="signup"),
     path("news/", include("apps.news.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
