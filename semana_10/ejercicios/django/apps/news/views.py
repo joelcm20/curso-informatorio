@@ -1,16 +1,19 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.db import IntegrityError
 from .forms import NewsForm
+from .models import News
 
 # Create your views here.
 
 
-def News(request):
-    return render(request, "news.html")
+def GetNews(request):
+    news = News.objects.all()
+    return render(request, "news.html", {"news": news})
 
 
-def DetailNews(request):
-    return render(request, "detail-news.html")
+def DetailNews(request, id):
+    news = get_object_or_404(News, id=id)
+    return render(request, "detail-news.html", {"news": news})
 
 
 def CreateNews(request):
@@ -18,7 +21,7 @@ def CreateNews(request):
         form = NewsForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            redirect("news")
+            return redirect("news")
         else:
             return render(request, "create-news.html", {
                 "form": NewsForm,
