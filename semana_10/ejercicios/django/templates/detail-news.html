@@ -1,5 +1,30 @@
-{% extends "layout.html" %}
-
-{% block content %}
-<h1>Detail news</h1>
+{% extends "layout.html" %} {% block content %}
+<main class="container">
+  <div class="row my-5">
+    <div class="col-md-8 offset-2">
+      <div class="card">
+        <div
+          style="max-height: auto"
+          class="bg-danger text-center"
+        >
+          <img
+            style="object-fit: cover"
+            class="card-image-top card-fluid rounded w-100"
+            src="{{news.image.url}}"
+            alt="{{news.image.url}}"
+          />
+        </div>
+        <div class="card-body">
+          <h1 class="card-title display-6">{{news.title}}</h1>
+          <div class="card-text">
+            <p>{{news.summary}}</p>
+          </div>
+          <div class="card-text">
+            <p>{{news.content}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 {% endblock %}
