@@ -27,7 +27,7 @@
             {% for comment in comments %}
             <div class="card card-body">
               <div class="card-title d-flex justify-content-between fw-bold">
-                <div class="card-username">
+                <div>
                   <i class="fa-sharp fa-regular fa-user"></i>
                   {{comment.user.username}}
                 </div>
@@ -42,6 +42,8 @@
               </div>
               <div class="card-text fst-italic">{{comment.text}}</div>
             </div>
+            {% empty %}
+            <p class="text-center pt-5">No comments yet.</p>
             {% endfor %}
           </div>
         </div>

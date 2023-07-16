@@ -20,7 +20,7 @@ def getNews(request):
 
 def detailNews(request, id):
     news = get_object_or_404(News, id=id)
-    comments = get_list_or_404(Comment)
+    comments = Comment.objects.filter(news=news)
     return render(request, "detail-news.html", {
         "news": news,
         "comments": comments,
