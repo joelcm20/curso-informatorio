@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 from .forms import NewsForm
 from .models import News
+from apps.comment.models import Comment
+from apps.comment.forms import CommentForm
 
 # Create your views here.
 
@@ -18,7 +20,11 @@ def getNews(request):
 
 def detailNews(request, id):
     news = get_object_or_404(News, id=id)
-    return render(request, "detail-news.html", {"news": news})
+    comments = get_list_or_404(Comment)
+    return render(request, "detail-news.html", {
+        "news": news,
+        "comments": comments,
+        "form": CommentForm})
 
 
 def createNews(request):
