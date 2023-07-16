@@ -27,4 +27,5 @@ urlpatterns = [
     path("sign-out", views.signOut, name="sign-out"),
     path("sign-in", views.signIn, name="sign-in"),
     path("news/", include("apps.news.urls")),
+    path("comment/", include("apps.comment.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
