@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
+from django.http import HttpResponse
 from .forms import NewsForm
 from .models import News
 from apps.comment.models import Comment
@@ -32,7 +33,7 @@ def createNews(request):
         form = NewsForm(request.POST, request.FILES)
         if form.is_valid():
             form = form.save(commit=False)
-            form.user=request.user
+            form.user = request.user
             form.save()
             return redirect("news")
         else:
@@ -53,3 +54,15 @@ def deleteNews(request, id):
         news = get_object_or_404(News, id=id, user=user)
         News.delete(news)
         return redirect("news")
+
+
+def updateNews(request, id):
+    news = get_object_or_404(News, id=id)
+    form = NewsForm(instance=news)
+
+    if request.method == "GET":
+        return render(request, "update-news.html", {"form": form})
+    
+    form = NewsForm(request.POST, request.FILES, instance=news)
+    form.save()
+    return redirect("detail-news", id)
