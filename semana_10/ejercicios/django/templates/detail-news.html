@@ -26,9 +26,19 @@
           <div class="my-3">
             {% for comment in comments %}
             <div class="card card-body">
-              <div class="card-title fw-bold">
-                <i class="fa-sharp fa-regular fa-user"></i>
-                {{comment.user.username}}
+              <div class="card-title d-flex justify-content-between fw-bold">
+                <div class="card-username">
+                  <i class="fa-sharp fa-regular fa-user"></i>
+                  {{comment.user.username}}
+                </div>
+                <form action="{% url 'delete-comment' comment.id %}" method="post">
+                  {% if comment.user == user %}
+                  {% csrf_token %}
+                  <button class="btn btn-link text-danger"><i class="fa-sharp fa-solid fa-delete-left"></i></button>
+                  {% else %}
+                  <button disabled class="btn btn-link text-danger"><i class="fa-sharp fa-solid fa-delete-left"></i></button>
+                  {% endif %}
+                </form>
               </div>
               <div class="card-text fst-italic">{{comment.text}}</div>
             </div>
