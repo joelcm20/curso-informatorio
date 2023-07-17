@@ -3,11 +3,11 @@
   <h1 class="text-center display-6 my-5">News</h1>
   <div class="row">
     {% if news %} {% for new in news %}
-    <div class="col-md-4 card" style="width: 18rem">
+    <div class="col-sm-12 col-md-4 card">
       <img src="{{new.image.url}}" class="card-img-top img-fluid" alt="{{news.title}}"
         style="object-fit: cover; width: 250; height: 250px;" />
       <div class="card-body">
-        <h5 class="card-title">{{new.title}}</h5>
+        <h5 class="card-title text-center">{{new.title}}</h5>
         <p class="card-text">
           {{new.summary}}
         </p>

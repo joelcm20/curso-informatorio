@@ -12,58 +12,51 @@
 <body>
   <div class="container">
     <header>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-center">
-            <a class="navbar-brand" href="{% url 'home' %}">Django Blog</a>
+      <nav class="navbar navbar-expand-md bg-body-tertiary">
+        <div class="container-fluid d-flex">
+          <a class="navbar-brand" href="{% url 'home' %}">Django Blog</a>
 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              {% if user.is_authenticated %}
-              <li>
-                <a href="{% url 'news' %}" class="nav-link px-2 link-body-emphasis">News</a>
-              </li>
-              <li>
-                <a href="{% url 'create-news' %}" class="nav-link px-2 link-body-emphasis">Create-News</a>
-              </li>
-              {% else %}
-              <li>
-                <a href="{% url 'sign-in' %}" class="nav-link px-2 link-body-emphasis">SignIn</a>
-              </li>
-              <li>
-                <a href="{% url 'sign-up' %}" class="nav-link px-2 link-body-emphasis">SignUp</a>
-              </li>
-              {% endif %}
-            </ul>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            {% if user.is_authenticated %}
-            <div class="dropdown text-end px-2">
-              <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                data-bs-toggle="dropdown" aria-expanded="false">
+          {# menu #}
+          {% if user.is_authenticated %}
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="{% url 'news' %}" class="nav-link">News</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'create-news' %}" class="nav-link">Create-News</a>
+              </li>
+              <hr class="border border-primary border-3 opacity-75 d-md-none">
+              <li class="nav-item text-center fw-bold d-md-none">
                 <i class="fa-solid fa-user"></i>
-              </a>
-              <ul class="dropdown-menu text-small">
-                <div class="lead text-center">
-                  {{user.username}}
-                </div>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li><a class="dropdown-item" href="#">New project...</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li>
-                  <a class="dropdown-item" href="{% url 'sign-out' %}">
-                    <i class="fa-solid fa-right-from-bracket px-1"></i>
-                    Sign Out
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {% endif %}
+                {{user.username}}
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'sign-out' %}">
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                  Sign Out
+                </a>
+              </li>
+            </ul>
           </div>
+          {% else %}
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="{% url 'sign-in' %}" class="nav-link">SignIn</a>
+              </li>
+              <li class="nav-item">
+                <a href=" {% url 'sign-up' %}" class="nav-link">SignUp</a>
+              </li>
+            </ul>
+          </div>
+          {% endif %}
+
         </div>
       </nav>
     </header>
